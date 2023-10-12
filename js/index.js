@@ -41,25 +41,24 @@ for (let i = 0; i < hacker1.length; i++) {
 
 
    let newOrder = "";
-   
-   for (let i = 0; i < Math.min(hacker1.length, hacker2.length); i++) {
-       
-       if (hacker1[i] < hacker2[i]) {
-          
-           newOrder = "The driver's name goes first.";
-           break;
-       } 
-       
-       else if (hacker1[i] > hacker2[i]) {
-          
-           newOrder = "Yo, the navigator goes first definitely.";
-           break;
-       } 
-       
-       else {
-           newOrder = "What?! You both have the same name?";
-       }
-   }
-   
-   console.log(newOrder);
 
+   let minLength = Math.min(hacker1.length, hacker2.length);
+
+for (let i = 0; i < minLength; i++) {
+    if (hacker1[i] < hacker2[i]) {
+        newOrder = "The driver's name goes first.";
+        break;
+    } else if (hacker1[i] > hacker2[i]) {
+        newOrder = "Yo, the navigator goes first definitely.";
+        break;
+    } else if (i === minLength - 1) {
+        if (hacker1.length < hacker2.length) {
+            newOrder= "The driver's name goes first.";
+        } else if (hacker1.length > hacker2.length) {
+            newOrder = "Yo, the navigator goes first definitely.";
+        } else {
+            newOrder = "What?! You both have the same name?";
+        }
+    }
+}
+console.log(newOrder);
